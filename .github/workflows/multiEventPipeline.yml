@@ -1,13 +1,15 @@
 name: "multi event pipelinge / workflow"
 
 on:
-    push:
+    push:   #event 
         branches:
             - master
             - test
     pull_request:
         branches:
             - master 
+        types:
+            - closed
     workflow_dispatch:
 
 
@@ -15,10 +17,10 @@ on:
 
 jobs:
     
-    on-push:
+    on-push:  #job name
         if: github.event_name == 'push'
         runs-on: ubuntu-latest
-        steps:
+        steps: #steps to be executed 
             - name: "Running on master branch"
               run : echo "Running on master push"
 
@@ -30,6 +32,16 @@ jobs:
         steps:
             - name: "Running on pull request"
               run : echo "Running on pull request"
+
+
+    on-pull_request_closed:
+        if: github.event_name == 'pull_request' && github.event.action == 'closed'
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Running on pull request closed"
+              run : echo "Running on pull request closed"
+
+    
 
     on-workflow_dispatch:
         if: github.event_name == 'workflow_dispatch'
