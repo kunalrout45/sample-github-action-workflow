@@ -1,0 +1,7 @@
+name: "Hello world workflow"
+
+on:
+    push:
+        branches:
+            -master 
+            -production 
