@@ -9,7 +9,7 @@ on:
 
 jobs:
     on-push:
-        runs-on: github-latest
+        runs-on: ubuntu-latest
         steps:
             - name: "Running on master branch"
               run : echo "Running on master push"
