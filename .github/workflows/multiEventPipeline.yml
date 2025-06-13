@@ -43,7 +43,8 @@ jobs:
               run : echo "Running on pull request closed"
 
 
-     on-pull_request_opened:
+
+>>>>>>> newtest
         if: github.event_name == 'pull_request' && github.event.action == 'opened'
         runs-on: ubuntu-latest
         steps:
