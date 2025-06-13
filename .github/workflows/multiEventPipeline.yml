@@ -1,0 +1,16 @@
+name: "multi event pipelinge / workflow"
+
+on:
+    push:
+        branches:
+            - master
+            - test
+
+
+jobs:
+    on-push:
+        runs-on: github-latest
+        steps:
+            - name: "Running on master branch"
+              run : echo "Running on master push"
+
